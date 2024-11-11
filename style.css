@@ -1,0 +1,300 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500&display=swap');
+
+/* Theme Variables */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --card-bg: #f8f9fa;
+    --card-border: #dee2e6;
+    --muted-color: #6c757d;
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --sidebar-bg: #000;
+    --sidebar-link-color: #e0e0e0;
+    --sidebar-hover-bg: #444;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --card-bg: #2a2a2a;
+    --card-border: #444444;
+    --muted-color: #a0a0a0;
+    --primary-color: #3d8bfd;
+    --sidebar-bg: #1a1a1a;
+}
+
+/* Make News Dashboard text white in dark mode */
+body.dark-mode .navbar-brand {
+    color: #ffffff !important; /* Ensure text color is white in dark mode */
+}
+
+/* Adjust the icon color next to "News Dashboard" in dark mode */
+body.dark-mode .navbar-brand i {
+    color: #ffffff !important; /* Ensure icon color is white in dark mode */
+}
+
+
+/* Base Styling */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Navbar */
+.navbar-brand {
+    font-family: 'Lora', serif;
+    font-size: 1.5rem;
+    margin-left: 20px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--sidebar-bg);
+    color: #fff;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1050;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar.active {
+    transform: translateX(0);
+}
+
+.sidebar-link {
+    display: block;
+    padding: 15px 20px;
+    color: var(--sidebar-link-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-link:hover {
+    background-color: var(--sidebar-hover-bg);
+    color: #ffffff;
+}
+
+.dropdown-menu {
+    background-color: var(--sidebar-bg);
+    border: none;
+}
+
+.dropdown-item {
+    padding: 15px 20px;
+    color: var(--sidebar-link-color);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.dropdown-item:hover {
+    background-color: #333;
+    color: #ffffff;
+}
+
+/* Sidebar Scrollbar Styling */
+.sidebar .dropdown-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar .dropdown-menu::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 4px;
+}
+
+.sidebar .dropdown-menu::-webkit-scrollbar-track {
+    background-color: var(--sidebar-bg);
+}
+
+/* Adjustments to align sidebar button with the "News Dashboard" text */
+#toggleSidebarBtn {
+    height: 40px; /* Same height as the navbar */
+    margin-top: 2px; /* Adjust to align vertically with the brand text */
+    padding: 5px 10px; /* Reduce padding for a compact button */
+    display: flex;
+    align-items: center; /* Center icon inside button */
+    font-size: 1.25rem; /* Ensure the icon matches the brand size */
+}
+
+/* Dark Mode Toggle Styles */
+.form-check.form-switch {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.form-check-input {
+    width: 50px;
+    height: 30px;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
+#darkModeIcon {
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.circular-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.circular-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.section-title {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.team-description {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--muted-color);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+.no-results {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Match the height of the container without taking full viewport height */
+    font-size: 1.5rem;
+    color: #666;
+    font-weight: 600;
+    opacity: 0.7;
+    animation: fadeIn 0.5s ease-in-out;
+    text-align: center;
+    margin-top: 20px; /* Optional: Adjusts vertical spacing if needed */
+}
+
+/* Back button styling */
+.back-btn {
+    background-color: #222; /* Dark background */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px 20px;
+    margin: 15px 20px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-btn i {
+    font-size: 1.2rem; /* Slightly larger icon */
+    vertical-align: middle;
+}
+
+.back-btn:hover {
+    background-color: #444; /* Darker shade on hover */
+    color: #f1f1f1;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 0.7; transform: translateY(0); }
+}
+
+/* Header Line Styling */
+.header-line {
+    width: 100%;
+    height: 6px;
+    background-color: #000000;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .header-line {
+    background-color: #ffffff;
+    box-shadow: 0px 6px 12px rgba(255, 255, 255, 0.4);
+}
+
+/* Card Styling */
+.card {
+    background-color: var(--card-bg);
+    border-color: var(--card-border);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* Footer Styling */
+footer {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+}
+
+footer .footer-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+/* Text Animation */
+.animate-text {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeInLeft 1s ease-out forwards;
+}
+
+@keyframes fadeInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+    .center-content {
+        padding: 2rem 3rem;
+    }
+    .circular-image {
+        width: 300px;
+        height: 300px;
+    }
+}
+
